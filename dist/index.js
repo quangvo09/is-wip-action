@@ -44,7 +44,7 @@ function run() {
             const { eventName } = github.context;
             core.info(`Event name: ${eventName}`);
             if (eventName !== 'pull_request') {
-                core.setFailed(`Invalid event: ${eventName}, it should be use on pull_request`);
+                core.setOutput('is_wip', 'false');
                 return;
             }
             const title = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.title;

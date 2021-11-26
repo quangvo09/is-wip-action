@@ -7,9 +7,7 @@ async function run(): Promise<void> {
     core.info(`Event name: ${eventName}`)
 
     if (eventName !== 'pull_request') {
-      core.setFailed(
-        `Invalid event: ${eventName}, it should be use on pull_request`
-      )
+      core.setOutput('is_wip', 'false')
       return
     }
 
