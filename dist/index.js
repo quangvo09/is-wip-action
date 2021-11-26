@@ -48,7 +48,8 @@ function run() {
                 return;
             }
             const title = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.title;
-            const isWip = /\bready for pro\b/i.test(title);
+            const isCompleted = /\bready for pro\b/i.test(title);
+            const isWip = !isCompleted;
             core.setOutput('is_wip', isWip.toString());
         }
         catch (error) {
