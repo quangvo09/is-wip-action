@@ -13,6 +13,7 @@ async function run(): Promise<void> {
 
     const title = github.context.payload.pull_request?.title
     const isWip = /\bwip\b/i.test(title)
+    core.info(`Title: ${title}, ${isWip}`)
     core.setOutput('is_wip', isWip.toString())
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
